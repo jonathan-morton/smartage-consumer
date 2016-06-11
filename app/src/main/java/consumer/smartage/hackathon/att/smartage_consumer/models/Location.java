@@ -7,7 +7,7 @@ public class Location {
     double longitude;
     double lattitude;
 
-    public void location() {
+    public void Location() {
         longitude = 0.0;
         lattitude = 0.0;
     }
@@ -20,11 +20,11 @@ public class Location {
         return lattitude;
     }
 
-    public void setLogitude(float longit) {
+    public void setLogitude(double longit) {
         longitude = longit;
     }
 
-    public void setLattitude(float lat) {
+    public void setLattitude(double lat) {
         lattitude = lat;
     }
 }
