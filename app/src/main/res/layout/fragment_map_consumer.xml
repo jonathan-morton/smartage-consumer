@@ -3,11 +3,9 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="consumer.smartage.hackathon.att.smartage_consumer.fragments.MapConsumerFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <fragment
+        android:id="@+id/map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
-
+        class="com.google.android.gms.maps.SupportMapFragment" />
 </FrameLayout>
