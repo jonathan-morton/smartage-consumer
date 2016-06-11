@@ -12,8 +12,9 @@ import java.util.ArrayList;
 /**
  * Created by joshabrams on 6/11/16.
  */
-/*
+
 public class Route {
+    /*
     private ArrayList<Trashcan> waypoints;
 
     public Route() {
@@ -33,5 +34,5 @@ public class Route {
                 Uri.parse("http://maps.google.com/maps?saddr=" + startingLatitude + "," + startingLongitude + "&daddr=" + destinationLatitude + "," + destinationLongitude));
         return intent;
     }
+    */
 }
-*/
