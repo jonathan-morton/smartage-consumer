@@ -6,23 +6,30 @@ package consumer.smartage.hackathon.att.smartage_consumer.models;
 public class Trash {
     private int id;
     private String type;
-    private String optDesctip;
+    private String optionalDescription;
 
     //  Constructor: default
     public Trash() {
         this.id = 0;
         this.type = null;
-        this.optDesctip = null;
+        this.optionalDescription = null;
     }
 
-    //  Getter
+    //  Setter and Getter
     public int getId() {
         return id;
     }
 
-    //  Setter
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getOptionalDescription() {
+        return optionalDescription;
+    }
+
+    public void setOptionalDescription(String optionalDescription) {
+        this.optionalDescription = optionalDescription;
     }
 
     public String getType() {
@@ -33,11 +40,5 @@ public class Trash {
         this.type = type;
     }
 
-    public String getOptDesctip() {
-        return optDesctip;
-    }
 
-    public void setOptDesctip(String optDesctip) {
-        this.optDesctip = optDesctip;
-    }
 }
