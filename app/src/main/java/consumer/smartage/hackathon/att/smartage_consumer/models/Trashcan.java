@@ -5,27 +5,34 @@ package consumer.smartage.hackathon.att.smartage_consumer.models;
  */
 public class Trashcan {
     double volume;
-    double capacity;
+    int fs;
     int id;
-    int userReports;
-    public Location canLocation= new Location();
+    int nr;
+    double latitude;
+    double longitude;
 
+    public int getFs() {
+        return fs;
+    }
 
-    public double getVolume(){
+    public void setFs(int fs) {
+        this.fs = fs;
+    }
+
+    public int getNr() {
+        return nr;
+    }
+
+    public void setNr(int nr) {
+        this.nr = nr;
+    }
+
+    public double getVolume() {
         return volume;
     }
 
-    public double getCapacity(){
-        return capacity;
-    }
-
-
     public int getId(){
         return id;
-    }
-
-    public int getReportsCount(){
-        return userReports;
     }
 
 
@@ -33,40 +40,36 @@ public class Trashcan {
         volume =vol;
     }
 
-    public void setCapacity(int cap){
-        capacity=cap;
-    }
-
     public void setId(int giveId){
         id=giveId;
     }
 
     public void addReport(){
-        userReports++;
+        nr++;
     }
 
 
     public void subReport(){
-        if(userReports>=0){
-            userReports--;
+        if (nr >= 0) {
+            nr--;
         }else{
-            userReports=0;
+            nr = 0;
         }
     }
 
-    public void setLatitide(double latitide){
-        canLocation.setLatitude(latitide);
+    public double getLongitude() {
+        return longitude;
     }
 
-    public void setLongitude(double longitude){
-        canLocation.setLongitude(longitude);
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
-    public double getLatitide(){
-        return getLatitide();
+    public double getLatitude() {
+        return latitude;
     }
 
-    public double getLongitude(){
-        return getLongitude();
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 }

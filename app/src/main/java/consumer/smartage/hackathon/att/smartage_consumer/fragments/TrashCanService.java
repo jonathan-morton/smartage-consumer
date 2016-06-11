@@ -16,7 +16,7 @@ interface TrashCanService {
     @GET("trashcans")
     Call<List<Trashcan>> getTrashCans();
 
-    String networkUrl = "http://192.168.1.133:2345/";
+    String networkUrl = "http://192.168.1.149:2345/";
 
     public static final Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(networkUrl)

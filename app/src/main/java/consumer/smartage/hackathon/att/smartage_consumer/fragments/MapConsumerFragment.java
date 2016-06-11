@@ -11,10 +11,17 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import consumer.smartage.hackathon.att.smartage_consumer.R;
@@ -106,6 +113,7 @@ public class MapConsumerFragment extends Fragment implements OnMapReadyCallback 
         }
         View view = (FrameLayout) inflater.inflate(R.layout.fragment_map_consumer, container, false);
         setupMap();
+
         getTrashCans();
 
         return view;
@@ -162,6 +170,32 @@ public class MapConsumerFragment extends Fragment implements OnMapReadyCallback 
         }
     }
 
+    private void createMarkers() {
+
+        List<Marker> markers = new ArrayList<Marker>();
+        for (Trashcan trashcan : trashCans) {
+            Marker marker;
+            String realCan = "";
+            if (trashcan.getId() == 1) {
+                realCan = "real: ";
+            }
+            marker = map.addMarker(new MarkerOptions()
+                    .position(new LatLng(trashcan.getLatitude(), trashcan.getLongitude()))
+                    .title(realCan + "capacity: " + trashcan.getFs()));
+
+            markers.add(marker);
+        }
+
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+        for (Marker marker : markers) {
+            builder.include(marker.getPosition());
+        }
+        LatLngBounds bounds = builder.build();
+        int padding = 30; // offset from edges of the map in pixels
+        CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
+        map.animateCamera(cu);
+    }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
@@ -177,6 +211,7 @@ public class MapConsumerFragment extends Fragment implements OnMapReadyCallback 
             @Override
             public void onResponse(Call<List<Trashcan>> call, Response<List<Trashcan>> response) {
                 trashCans = response.body();
+                createMarkers();
             }
 
             @Override

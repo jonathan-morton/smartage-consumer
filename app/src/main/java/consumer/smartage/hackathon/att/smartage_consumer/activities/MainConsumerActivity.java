@@ -1,6 +1,5 @@
 package consumer.smartage.hackathon.att.smartage_consumer.activities;
 
-import android.app.DialogFragment;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 
 import consumer.smartage.hackathon.att.smartage_consumer.R;
 import consumer.smartage.hackathon.att.smartage_consumer.fragments.MapConsumerFragment;
-import consumer.smartage.hackathon.att.smartage_consumer.fragments.StartupDialog;
 
 public class MainConsumerActivity extends AppCompatActivity
         implements MapConsumerFragment.OnFragmentInteractionListener {
@@ -34,8 +32,8 @@ public class MainConsumerActivity extends AppCompatActivity
         }
 
         //Dialog fragment
-        StartupDialog Dialog=new StartupDialog();
-        Dialog.show(getFragmentManager(),"Test");
+        /*StartupDialog Dialog=new StartupDialog();
+        Dialog.show(getFragmentManager(),"Test");*/
 
         setupToolbar();
     }
