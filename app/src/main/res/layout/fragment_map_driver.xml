@@ -5,7 +5,7 @@
              tools:context="consumer.smartage.hackathon.att.smartage_consumer.fragments.MapDriverFragment">
 
     <fragment
-        android:id="@+id/location_map"
+        android:id="@+id/map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         class="com.google.android.gms.maps.SupportMapFragment" />
