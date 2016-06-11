@@ -4,17 +4,25 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 
+import java.util.List;
+
 import consumer.smartage.hackathon.att.smartage_consumer.R;
 import consumer.smartage.hackathon.att.smartage_consumer.activities.MainConsumerActivity;
+import consumer.smartage.hackathon.att.smartage_consumer.models.Trashcan;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +35,7 @@ import consumer.smartage.hackathon.att.smartage_consumer.activities.MainConsumer
 public class MapConsumerFragment extends Fragment implements OnMapReadyCallback {
 
     private static GoogleMap map;
+    private List<Trashcan> trashCans;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -97,6 +106,7 @@ public class MapConsumerFragment extends Fragment implements OnMapReadyCallback 
         }
         View view = (FrameLayout) inflater.inflate(R.layout.fragment_map_consumer, container, false);
         setupMap();
+        getTrashCans();
 
         return view;
     }
@@ -144,7 +154,7 @@ public class MapConsumerFragment extends Fragment implements OnMapReadyCallback 
             if (map != null) {
                 map.setMyLocationEnabled(true);
             }
-            /*// For dropping a marker at a point on the Map
+            /*//C For dropping a marker at a point on the Map
             map.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("My Home").snippet("Home Address"));
             // For zooming automatically to the Dropped PIN Location
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude,
@@ -155,5 +165,25 @@ public class MapConsumerFragment extends Fragment implements OnMapReadyCallback 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
+    }
+
+    public void getTrashCans() {
+        TrashCanService trashCanService = TrashCanService.retrofit.create(TrashCanService.class);
+
+        final Call<List<Trashcan>> call =
+                trashCanService.getTrashCans();
+
+        call.enqueue(new Callback<List<Trashcan>>() {
+            @Override
+            public void onResponse(Call<List<Trashcan>> call, Response<List<Trashcan>> response) {
+                trashCans = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<List<Trashcan>> call, Throwable t) {
+                Log.e("Smartage", t.getMessage());
+                Toast.makeText(getActivity(), "There was an error getting the trash cans", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

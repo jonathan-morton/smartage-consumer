@@ -1,17 +1,10 @@
 package consumer.smartage.hackathon.att.smartage_consumer.models;
 
-import android.net.Uri;
-import android.content.Intent;
-import android.view.Menu;
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.View;
-
 /**
  * Created by joshabrams on 6/11/16.
  */
 public class Route {
-    private Arraylist<Trashcan> waypoints;
+    /*private Arraylist<Trashcan> waypoints;
 
     public Route() {
         this.waypoints = new Arraylist<Trashcan>();
@@ -26,5 +19,5 @@ public class Route {
         Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
                 Uri.parse("http://maps.google.com/maps?saddr=" + startingLatitude + "," + startingLongitude + "&daddr=" + destinationLatitude + "," + destinationLongitude));
         return intent;
-    }
+    }*/
 }
