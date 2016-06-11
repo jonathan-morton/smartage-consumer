@@ -28,7 +28,6 @@ public class StartupDialog extends DialogFragment {
                 .setPositiveButton("Drive", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(getActivity(), "You have selected drive mode", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton("User", new DialogInterface.OnClickListener() {
