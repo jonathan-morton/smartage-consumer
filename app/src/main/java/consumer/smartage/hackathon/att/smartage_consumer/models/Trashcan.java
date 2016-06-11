@@ -24,7 +24,7 @@ public class Trashcan {
         return id;
     }
 
-    public int getUsr_reports(){
+    public int getReportsCount(){
         return userReports;
     }
 
@@ -49,6 +49,8 @@ public class Trashcan {
     public void subReport(){
         if(userReports>=0){
             userReports--;
+        }else{
+            userReports=0;
         }
     }
 
