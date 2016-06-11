@@ -52,11 +52,19 @@ public class Trashcan {
         }
     }
 
-    public void setLattitide(double lattitide){
-        canLocation.setLattitude(lattitide);
+    public void setLatitide(double latitide){
+        canLocation.setLatitude(latitide);
     }
 
     public void setLongitude(double longitude){
-        canLocation.setLattitude(longitude);
+        canLocation.setLongitude(longitude);
+    }
+
+    public double getLatitide(){
+        return getLatitide();
+    }
+
+    public double getLongitude(){
+        return getLongitude();
     }
 }

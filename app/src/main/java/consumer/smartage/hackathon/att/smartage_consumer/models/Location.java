@@ -5,26 +5,26 @@ package consumer.smartage.hackathon.att.smartage_consumer.models;
  */
 public class Location {
     double longitude;
-    double lattitude;
+    double latitude;
 
     public void Location() {
         longitude = 0.0;
-        lattitude = 0.0;
+        latitude = 0.0;
     }
 
     public double getLogitude() {
         return longitude;
     }
 
-    public double getLattitude() {
-        return lattitude;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setLogitude(double longit) {
+    public void setLongitude(double longit) {
         longitude = longit;
     }
 
-    public void setLattitude(double lat) {
-        lattitude = lat;
+    public void setLatitude(double lat) {
+        latitude = lat;
     }
 }
