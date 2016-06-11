@@ -7,17 +7,23 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 
+import java.util.ArrayList;
+
 /**
  * Created by joshabrams on 6/11/16.
  */
+/*
 public class Route {
-    private Arraylist<Trashcan> waypoints;
+    private ArrayList<Trashcan> waypoints;
 
     public Route() {
-        this.waypoints = new Arraylist<Trashcan>();
+        this.waypoints = new ArrayList<Trashcan>();
+        waypoints.add(1,new Trashcan());
+        waypoints.add(1,new Trashcan());
     }
 
     public Intent plotRoute() {
+
         String startingLatitude = waypoints.get(0).getLatitude.ToString();
         String startingLongitude = waypoints.get(0).getLongitude.ToString();
         String destinationLatitude = waypoints.get(1).getLatitude.ToString();
@@ -28,3 +34,4 @@ public class Route {
         return intent;
     }
 }
+*/
