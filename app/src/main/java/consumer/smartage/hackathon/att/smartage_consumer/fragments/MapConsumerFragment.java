@@ -177,11 +177,19 @@ public class MapConsumerFragment extends Fragment implements OnMapReadyCallback 
             Marker marker;
             String realCan = "";
             if (trashcan.getId() == 1) {
-                realCan = "real: ";
+                realCan = "Real ";
+            }
+            String capacity = "";
+            if (trashcan.getFs() == 0) {
+                capacity = "Empty";
+            } else if (trashcan.getFs() == 1) {
+                capacity = "Half";
+            } else {
+                capacity = "Full";
             }
             marker = map.addMarker(new MarkerOptions()
                     .position(new LatLng(trashcan.getLatitude(), trashcan.getLongitude()))
-                    .title(realCan + "capacity: " + trashcan.getFs()));
+                    .title(realCan + "fill status: " + capacity));
 
             markers.add(marker);
         }
@@ -191,7 +199,7 @@ public class MapConsumerFragment extends Fragment implements OnMapReadyCallback 
             builder.include(marker.getPosition());
         }
         LatLngBounds bounds = builder.build();
-        int padding = 30; // offset from edges of the map in pixels
+        int padding = 100; // offset from edges of the map in pixels
         CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
         map.animateCamera(cu);
     }
